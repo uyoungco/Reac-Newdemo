@@ -1,25 +1,3 @@
-# new-project
+# React实战项目 新闻站
 
-> A React project
-
-## Usage
-
-```bash
-# install all this dependencies.
-npm install
-
-# development, default port: 8080
-npm run dev
-
-# production
-npm run build
-
-# build with report
-npm run build --report
-
-# lint the files
-npm run lint
-
-# run the tests
-npm test
-```
+> 根据慕课网教学视频
