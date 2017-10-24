@@ -4,6 +4,7 @@ import { AppContainer } from 'react-hot-loader'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { Button } from 'antd';
+import PCIndex from './components/pc_index';
 import 'antd/dist/antd.css';
 
 class Root extends React.Component {
@@ -11,10 +12,8 @@ class Root extends React.Component {
     return (
 
       <div>
-        <Button type="primary">Primary</Button>
-        <Button>Default</Button>
-        <Button type="dashed">Dashed</Button>
-        <Button type="danger">Danger</Button>
+        <PCIndex />
+        
       </div>
     );
   }
