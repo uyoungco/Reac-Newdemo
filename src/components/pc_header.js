@@ -31,8 +31,8 @@ class PCHeader extends React.Component {
       userid: 0
     }
   };
-
-  setModalVisible(value) {
+  setModalVisible(value)
+  {
     this.setState({modalVisible: value});
   };
   handleClick(e) {
@@ -40,16 +40,30 @@ class PCHeader extends React.Component {
       this.setState({current: 'register'});
       this.setModalVisible(true);
     } else {
-      this.setState({current: e.key})
+      {
+        this.setState({current: e.key});
+      }
     }
   };
   handleSubmit(e) {
     //页面开始向 API 进行提交数据
-  }
+    e.preventDefault();
+    var myFetchOptions = {
+      method: 'GET'
+    };
+    var formData = this.props.form.getFieldsValue();
+    console.log(formData);
+    fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=register&username=userName&password=password&r_userName=" + formData.r_userName + "&r_password=" + formData.r_password + "&r_confirmPassword=" + formData.r_confirmPassword, myFetchOptions).then(response => response.json()).then(json => {
+      this.setState({userNickName: json.NickUserName, userid: json.UserId});
+
+    });
+    message.success("请求成功！");
+    this.setModalVisible(false);
+  };
   render() {
-    let {getFieldProps} = this.props.form; //接收form的参数
+    let {getFieldDecorator} = this.props.form;
     const userShow = this.state.hasLogined
-      ? <Menu.Item key="logout" className="register">
+      ? <Menu.Item key="logout" class="register">
           <Button type="primary" htmlType="button">{this.state.userNickName}</Button>
           &nbsp;&nbsp;
           <Link target="_blank">
@@ -58,10 +72,9 @@ class PCHeader extends React.Component {
           &nbsp;&nbsp;
           <Button type="ghost" htmlType="button">退出</Button>
         </Menu.Item>
-      : <Menu.Item key="register" className="register">
+      : <Menu.Item key="register" class="register">
         <Icon type="appstore"/>注册/登录
       </Menu.Item>;
-
     return (
       <header>
         <Row>
@@ -101,25 +114,24 @@ class PCHeader extends React.Component {
               {userShow}
             </Menu>
 
-            <Modal title="用户中心" wrapClassName="vertical-center-modal" visible={this.state.modalVisible} onCancel={() => this.setModalVisible(false)} onOk={() => this.setModalVisible(false)} okText="关闭">
+            <Modal title="用户中心" wrapClassName="vertical-center-modal" visible={this.state.modalVisible} onCancel= {()=>this.setModalVisible(false)} onOk={() => this.setModalVisible(false)} okText="关闭">
               <Tabs type="card">
                 <TabPane tab="注册" key="2">
                   <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
-                    <FormItem label="账号">
-                      <Input placeholder="请输入您的账号" {...getFieldProps('r_userName')}/>
+                    <FormItem label="账户">
+                      <Input placeholder="请输入您的账号" {...getFieldDecorator('r_userName')}/>
                     </FormItem>
                     <FormItem label="密码">
-                      <Input type="password" placeholder="请输入您的密码" {...getFieldProps('r_password')}/>
+                      <Input type="password" placeholder="请输入您的密码" {...getFieldDecorator('r_password')}/>
                     </FormItem>
                     <FormItem label="确认密码">
-                      <Input type="password" placeholder="请再次输入您的密码" {...getFieldProps('r_confirmPassword')}/>
+                      <Input type="password" placeholder="请再次输入您的密码" {...getFieldDecorator('r_confirmPassword')}/>
                     </FormItem>
                     <Button type="primary" htmlType="submit">注册</Button>
                   </Form>
                 </TabPane>
               </Tabs>
             </Modal>
-
           </Col>
           <Col span={2}></Col>
         </Row>
@@ -127,5 +139,4 @@ class PCHeader extends React.Component {
     );
   };
 }
-
 export default PCHeader = Form.create({})(PCHeader);
