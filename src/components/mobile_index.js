@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Tabs} from 'antd';
 import MobileHeder from './mobile_header';
 import MoblieFooter from './mobile_footer';
+import MobileList from './mobile_list';
 import '../css/mobile.css';
 
 const TabPane = Tabs.TabPane;
@@ -13,11 +14,21 @@ export default class MobileIndex extends React.Component {
       <div>
         <MobileHeder/>
         <Tabs>
-          <TabPane tab="头条" key="1"></TabPane>
-          <TabPane tab="社会" key="2"></TabPane>
-          <TabPane tab="国内" key="3"></TabPane>
-          <TabPane tab="国际" key="4"></TabPane>
-          <TabPane tab="娱乐" key="5"></TabPane>
+          <TabPane tab="头条" key="1">
+            <MobileList count={20} type="top"/>
+          </TabPane>
+          <TabPane tab="社会" key="2">
+            <MobileList count={20} type="shehui"/>
+          </TabPane>
+          <TabPane tab="国内" key="3">
+            <MobileList count={20} type="guonei"/>
+          </TabPane>
+          <TabPane tab="国际" key="4">
+            <MobileList count={20} type="guoji"/>
+          </TabPane>
+          <TabPane tab="娱乐" key="5">
+            <MobileList count={20} type="yule"/>
+          </TabPane>
         </Tabs>
         <MoblieFooter/>
       </div>
