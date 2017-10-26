@@ -11,6 +11,7 @@ import {
 	CheckBox,
 	Modal
 } from 'antd';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import logo from '../images/logo.png';
 
@@ -97,9 +98,11 @@ class PCHeader extends React.Component {
 			? <Menu.Item key="logout" class="register">
 					<Button type="primary" htmlType="button">{this.state.userNickName}</Button>
 					&nbsp;&nbsp;
-
-						<Button type="dashed" htmlType="button">个人中心</Button>
-
+					<Router>
+						<Link target="_blank" to="/">
+							<Button type="dashed" htmlType="button">个人中心</Button>
+						</Link>
+					</Router>
 					&nbsp;&nbsp;
 					<Button type="ghost" htmlType="button" onClick={this.logout.bind(this)}>退出</Button>
 				</Menu.Item>
