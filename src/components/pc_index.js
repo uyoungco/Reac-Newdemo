@@ -2,7 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PCHeader from './pc_header';
 import PCFooter from './pc_footer';
+import PCNewsContainer from './pc_newscontainer';
+
 import '../css/pc.css';
+
+
 
 
 export default class PCIndex extends React.Component {
@@ -10,6 +14,7 @@ export default class PCIndex extends React.Component {
     return(
       <div>
         <PCHeader />
+        <PCNewsContainer />
         <PCFooter />
       </div>
     );

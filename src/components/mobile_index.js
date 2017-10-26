@@ -1,15 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Tabs} from 'antd';
 import MobileHeder from './mobile_header';
 import MoblieFooter from './mobile_footer';
 import '../css/mobile.css';
 
-export default class MobileIndex  extends React.Component {
+const TabPane = Tabs.TabPane;
+
+export default class MobileIndex extends React.Component {
   render() {
-    return(
+    return (
       <div>
-        <MobileHeder />
-        <MoblieFooter />
+        <MobileHeder/>
+        <Tabs>
+          <TabPane tab="头条" key="1"></TabPane>
+          <TabPane tab="社会" key="2"></TabPane>
+          <TabPane tab="国内" key="3"></TabPane>
+          <TabPane tab="国际" key="4"></TabPane>
+          <TabPane tab="娱乐" key="5"></TabPane>
+        </Tabs>
+        <MoblieFooter/>
       </div>
     );
   };

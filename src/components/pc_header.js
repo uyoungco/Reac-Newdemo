@@ -11,6 +11,9 @@ import {
 	CheckBox,
 	Modal
 } from 'antd';
+
+import logo from '../images/logo.png';
+
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
 const TabPane = Tabs.TabPane;
@@ -109,7 +112,7 @@ class PCHeader extends React.Component {
 					<Col span={2}></Col>
 					<Col span={4}>
 						<a href="/" className="logo">
-							<img src="./src/images/logo.png" alt="logo"/>
+							<img src={logo} alt="logo"/>
 							<span>ReactNews</span>
 						</a>
 					</Col>
