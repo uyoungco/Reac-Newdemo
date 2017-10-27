@@ -21,7 +21,7 @@ export default class PCNewsBlock extends React.Component {
 			? news.map((newsItem, index) => (
 				<li key={index}>
           <Router>
-					<Link to={`details/${newsItem.uniquekey}`} target="_blank">
+					<Link to={`/details/${newsItem.uniquekey}`} target="_blank">
             <Tooltip placement="right" title={newsItem.title}>
               <span>{newsItem.title}</span>
             </Tooltip>

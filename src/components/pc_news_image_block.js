@@ -32,7 +32,7 @@ export default class PCNewsImageBlock extends React.Component {
 			? news.map((newsItem, index) => (
         <div key={index} className="imageblock">
           <Router>
-            <Link to={`details/${newsItem.uniquekey}`} target="_blank">
+            <Link to={`/details/${newsItem.uniquekey}`} target="_blank">
             <Tooltip placement="top" title={newsItem.title}>
               <div className="custom-image">
                 <img style={styleImage} src={newsItem.thumbnail_pic_s} alt={newsItem.title}/>
