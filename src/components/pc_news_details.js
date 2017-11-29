@@ -34,7 +34,7 @@ export default class PCNewsDetails extends React.Component {
 							<div className="articleContainer" dangerouslySetInnerHTML={this.createMarkup()}></div>
 						</Col>
 						<Col span={6}>
-							<PCNewsImageBlock count={40} type="top" width="100%" cartTitle="头条" imageWidth="150px" />
+							<PCNewsImageBlock count={40} type="top" width="100%" cartTitle="头条" imageWidth="140px" />
 						</Col>
 						<Col span={2}></Col>
 					</Row>

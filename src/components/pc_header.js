@@ -33,15 +33,14 @@ class PCHeader extends React.Component {
 		};
 	};
 
-	componentWillMount(){
+	componentWillMount() {
 		if (localStorage.userid!='') {
 			this.setState({hasLogined:true});
 			this.setState({userNickName:localStorage.userNickName,userid:localStorage.userid});
 		}
 	};
 
-	setModalVisible(value)
-	{
+	setModalVisible(value) {
 		this.setState({modalVisible: value});
 	};
 	handleClick(e) {
@@ -54,8 +53,7 @@ class PCHeader extends React.Component {
 			}
 		}
 	};
-	handleSubmit(e)
-	{
+	handleSubmit(e) {
 		//页面开始向 API 进行提交数据
 		e.preventDefault();
 		var myFetchOptions = {
